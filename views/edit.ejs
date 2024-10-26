@@ -1,0 +1,38 @@
+<%- include('partials/header.ejs') %>
+<div class="mx-auto md:w-3/4 md:p-16 px-8 py-12 md:my-12">
+  <h1 class="text-center font-black py-4 text-4xl md:text-7xl text-gray-800">
+    Edit Your Post
+  </h1>
+  <div
+    class="md:w-3/4 w-full rounded-xl border bg-gray-800 border-gray-200 shadow-lg px-8 py-6 mx-auto"
+  >
+    <form action="/edit/<%= post.id %>" method="post">
+      <div class="mb-5">
+        <label
+          for="message"
+          class="block mb-2 text-2xl font-medium text-gray-900 dark:text-white"
+        >
+          Content
+        </label>
+        <textarea
+          name="content"
+          id="message"
+          rows="4"
+          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Edit your content here..."
+        >
+<%= post.content %></textarea
+        >
+      </div>
+      <div class="text-center">
+        <button
+          type="submit"
+          class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 hover:transition-all duration-200 active:translate-y-0 hover:-translate-y-2"
+        >
+          Update Content
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<%- include('partials/footer.ejs') %>

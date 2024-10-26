@@ -1,0 +1,65 @@
+<%- include('partials/header.ejs') %>
+<div class="flex items-center justify-center">
+  <div
+    class="flex flex-col md:flex-row items-center justify-between p-6 md:p-12 w-full md:w-1/2 space-y-4 md:space-y-0"
+  >
+    <h1 class="text-2xl md:text-4xl font-bold text-center md:text-left">
+      Latest Post
+    </h1>
+    <a href="/create">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded hover:transition duration-300 hover:-translate-y-1"
+      >
+        What's On Your Mind ++
+      </button>
+    </a>
+  </div>
+</div>
+<% if (locals.posts) { %>
+ <% posts.forEach(post => { %>
+  <div class="flex items-center justify-center my-2">
+    <div
+      class="flex flex-col md:flex-row items-center justify-center p-4 md:p-8 w-full md:w-1/2 space-y-4 md:space-y-0">
+      <div
+        class="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+      >
+        <a href="#">
+          <h5
+            class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white hover:text-blue-300 hover:underline-offset-2 hover:transition-all duration-500"
+          >
+            <%= post.nama %>
+          </h5>
+        </a>
+        <h6 class="text-white text-xl font-semibold"><%= post.title %></h6>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          <%= post.content %>
+        </p>
+        <form action="/delete/<%= post.id %>" method="post" class="inline">
+        <div class="flex items-end justify-end space-x-3">
+          <a href="/edit/<%= post.id %>" class="text-white"
+            ><img
+              width="30"
+              height="30"
+              src="images/edit.svg"
+              class="hover:transition duration-500 hover:-translate-y-2 active:translate-y-0"
+              alt="Update Post"
+            />
+          </a>
+            <button type="submit">
+              <img
+              width="30"
+              height="30"
+              class="hover:transition duration-500 hover:-translate-y-2 active:translate-y-0"
+              src="images/delete.svg"
+              alt=""
+            />
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+  <% } %>
+  <%- include('partials/footer.ejs') %>
+</ul>
